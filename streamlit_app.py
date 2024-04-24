@@ -1,9 +1,6 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
 import pickle
-
-from preprocessor import Preprocessor
 
 data = pd.read_csv('processed_dataset.csv')
 
