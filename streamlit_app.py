@@ -3,6 +3,11 @@ import pandas as pd
 import numpy as np
 import joblib as jl
 
+import sys
+
+python_path = sys.executable
+print("Python Path:", python_path)
+
 from joblib import load
 from preprocessor import Preprocessor
 
