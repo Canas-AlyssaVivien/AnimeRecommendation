@@ -1,22 +1,18 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import joblib as jl
+import pickle
 
-import sys
-
-python_path = sys.executable
-print("Python Path:", python_path)
-
-from joblib import load
 from preprocessor import Preprocessor
 
 data = pd.read_csv('processed_dataset.csv')
 
-model = load('anime_recommendation_model.pkl')
-model.summary()
+# Load model and preprocessing pipeline using pickle
+with open('anime_recommendation_model.pkl', 'rb') as f:
+    model = pickle.load(f)
 
-preprocessing_pipeline = load('preprocessing_pipeline.joblib')
+with open('preprocessing_pipeline.pkl', 'rb') as f:
+    preprocessing_pipeline = pickle.load(f)
 
 def preprocess_data(input_data):
     return preprocessing_pipeline.transform(input_data)
