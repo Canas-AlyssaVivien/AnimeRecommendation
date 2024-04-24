@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import joblib
+
 from joblib import load
 from preprocessor import Preprocessor
 
@@ -8,6 +10,8 @@ data = pd.read_csv('processed_dataset.csv')
 
 model = load('anime_recommendation_model.pkl')
 model.summary()
+
+preprocessing_pipeline = load('preprocessing_pipeline.joblib')
 
 def preprocess_data(input_data):
     return preprocessing_pipeline.transform(input_data)
