@@ -9,8 +9,6 @@ data = pd.read_csv('processed_dataset.csv')
 model = load('anime_recommendation_model.pkl')
 model.summary()
 
-preprocessing_pipeline = load('preprocessing_pipeline.joblib')
-
 def preprocess_data(input_data):
     return preprocessing_pipeline.transform(input_data)
 
