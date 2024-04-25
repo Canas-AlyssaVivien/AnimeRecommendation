@@ -12,7 +12,7 @@ from keras.models import load_model
 
 model = load_model('anime_recommendation_model.h5')
 
-with open('preprocessing_pipeline.pkl', 'rb') as f:
+with open('preprocessing_pipeline.joblib', 'rb') as f:
     preprocessing_pipeline = pickle.load(f)
 
 def preprocess_data(input_data):
