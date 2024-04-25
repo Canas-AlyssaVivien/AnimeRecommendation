@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import pickle
 
 data = pd.read_csv('processed_dataset.csv')
 
@@ -8,7 +7,8 @@ from keras.models import load_model
 model = load_model('anime_recommendation_model.h5')
 
 from preprocessor import Preprocessor
-preprocessor = Preprocessor()
+all_genres = ['Action','Adventure','Cars','Comedy','Dementia','Demons','Drama','Ecchi','Fantasy','Game','Harem','Hentai','Historical','Horror','Josei','Kids','Magic','Martial','Arts','Mecha','Military','Music','Mystery','Parody','Police','Psychological','Romance','Samurai','School','Sci-Fi','Seinen','Shoujo','Shoujo Ai','Shounen','Shounen Ai','Slice of Life','Space','Sports','Super Power','Supernatural','Thriller','Vampire','Yaoi','Yuri']
+preprocessor = Preprocessor(all_genres)
 
 st.title('Anime Recommendation')
 
