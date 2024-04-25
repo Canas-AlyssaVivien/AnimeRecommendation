@@ -5,6 +5,7 @@ from sklearn.preprocessing import MultiLabelBinarizer
 class Preprocessor(BaseEstimator, TransformerMixin):
     def __init__(self, all_genres):
         self.mlb = MultiLabelBinarizer(classes=all_genres)
+        self.all_genres = all_genres
         self.fitted = False
 
     def fit(self, X, y=None):
