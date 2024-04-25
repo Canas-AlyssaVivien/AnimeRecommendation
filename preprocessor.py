@@ -10,16 +10,14 @@ class Preprocessor(BaseEstimator, TransformerMixin):
         self.fitted = False
 
     def fit(self, X, y=None):
+        self.mlb.fit(X['genre'].str.split(', '))
         self.fitted = True
-
-        st.write('Fit? ', self.fitted)
         return self
 
     def transform(self, X):
-        if self.fitted == False:
+        if not hasattr(self.mlb, 'classes_'):
             raise ValueError("The MultiLabelBinarizer must be fitted before transforming data.")
         
-        st.write('HERE')
         X.dropna(subset=['genre'], inplace=True)
         X.reset_index(drop=True, inplace=True)
         
