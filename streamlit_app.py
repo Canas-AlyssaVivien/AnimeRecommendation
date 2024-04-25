@@ -25,7 +25,7 @@ if st.button('Predict'):
     preprocessed_data = preprocessor.fit(input_data)
     preprocessed_data = preprocessor.transform(input_data)
 
-    #preprocessed_data = preprocessed_data.drop(columns=['genre']).astype('float32')
+    preprocessed_data = preprocessed_data.drop(columns=['genre']).astype('float32')
 
     prediction = model.predict(preprocessed_data)
 
