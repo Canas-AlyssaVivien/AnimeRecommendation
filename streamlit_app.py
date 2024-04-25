@@ -31,10 +31,10 @@ if st.button('Predict'):
 
     prediction = model.predict(preprocessed_data)
 
-    #max_genre_index = prediction.argmax()
-    #max_genre_name = preprocessed_data.columns[max_genre_index]
+    max_genre_index = prediction.argmax()
+    max_genre_name = preprocessed_data.columns[max_genre_index]
 
-    #movies_with_max_genre = data[data[max_genre_name] == 1]['name']
+    movies_with_max_genre = data[data[max_genre_name] == 1]['name']
 
-    #st.header("Movies with the Predicted Genre:")
-    #st.write(movies_with_max_genre)
+    st.header("Movies with the Predicted Genre:")
+    st.write(movies_with_max_genre)
