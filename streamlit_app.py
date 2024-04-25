@@ -4,13 +4,11 @@ import pickle
 
 data = pd.read_csv('processed_dataset.csv')
 
-# Load model and preprocessing pipeline using pickle
-#with open('anime_recommendation_model.pkl', 'rb') as f:
-#    model = pickle.load(f)
+with open('anime_recommendation_model.pkl', 'rb') as f:
+    model = pickle.load(f)
 
-from keras.models import load_model
-
-model = load_model('anime_recommendation_model.h5')
+#from keras.models import load_model
+#model = load_model('anime_recommendation_model.h5')
 
 with open('preprocessing_pipeline.joblib', 'rb') as f:
     preprocessing_pipeline = pickle.load(f)
