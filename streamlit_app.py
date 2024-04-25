@@ -27,7 +27,9 @@ if st.button('Predict'):
 
     preprocessed_data = preprocessed_data.drop(columns=['genre']).astype('float32')
 
-    prediction = model.predict(preprocessed_data)
+    st.write('HI: ', preprocessed_data)
+
+    #prediction = model.predict(preprocessed_data)
 
     #max_genre_index = prediction.argmax()
     #max_genre_name = preprocessed_data.columns[max_genre_index]
