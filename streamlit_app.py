@@ -29,7 +29,7 @@ if st.button('Predict'):
 
     st.write('HI: ', preprocessed_data)
 
-    #prediction = model.predict(preprocessed_data)
+    prediction = model.predict(preprocessed_data)
 
     #max_genre_index = prediction.argmax()
     #max_genre_name = preprocessed_data.columns[max_genre_index]
