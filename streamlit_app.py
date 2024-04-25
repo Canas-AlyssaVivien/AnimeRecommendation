@@ -4,11 +4,8 @@ import pickle
 
 data = pd.read_csv('processed_dataset.csv')
 
-with open('anime_recommendation_model.pkl', 'rb') as f:
-    model = pickle.load(f)
-
-#from keras.models import load_model
-#model = load_model('anime_recommendation_model.h5')
+from keras.models import load_model
+model = load_model('anime_recommendation_model.h5')
 
 with open('preprocessing_pipeline.joblib', 'rb') as f:
     preprocessing_pipeline = pickle.load(f)
@@ -30,16 +27,12 @@ if st.button('Predict'):
     st.write('Genres:', genres)
 
     input_data = pd.DataFrame({'genre': [genres]})
+
+    preprocessed_data = preprocessor.fit(input_data)
     preprocessed_data = preprocessor.transform(input_data)
     preprocessed_data = preprocessed_data.drop(columns=['genre']).astype('float32')
 
     st.write('PreProcessed: ', preprocessed_data)
-
-    #preprocessed_data = preprocessor.fit(input_data)
-    #preprocessed_data = preprocessor.transform(input_data)
-    #st.write('2: ', preprocessed_data)
-    #preprocessed_data = preprocessed_data.drop(columns=['genre']).astype('float32')
-
     prediction = model.predict(preprocessed_data)
 
     max_genre_index = prediction.argmax()
