@@ -1,4 +1,5 @@
 import pandas as pd
+import streamlit as st
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.preprocessing import MultiLabelBinarizer
 
@@ -10,6 +11,8 @@ class Preprocessor(BaseEstimator, TransformerMixin):
 
     def fit(self, X, y=None):
         self.fitted = True
+
+        st.write('Fit? ', self.fitted)
         return self
 
     def transform(self, X):

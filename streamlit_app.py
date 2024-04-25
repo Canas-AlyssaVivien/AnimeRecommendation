@@ -23,9 +23,9 @@ if st.button('Predict'):
     input_data = pd.DataFrame({'genre': [genres]})
 
     preprocessed_data = preprocessor.fit(input_data)
-    preprocessed_data = preprocessor.transform(input_data)
+    #preprocessed_data = preprocessor.transform(input_data)
 
-    st.write('PreProcessed: ', preprocessed_data)
+    #st.write('PreProcessed: ', preprocessed_data)
 
     #preprocessed_data = preprocessed_data.drop(columns=['genre']).astype('float32')
 
