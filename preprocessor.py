@@ -19,6 +19,7 @@ class Preprocessor(BaseEstimator, TransformerMixin):
         if self.fitted == False:
             raise ValueError("The MultiLabelBinarizer must be fitted before transforming data.")
         
+        st.write('HERE')
         X.dropna(subset=['genre'], inplace=True)
         X.reset_index(drop=True, inplace=True)
         
