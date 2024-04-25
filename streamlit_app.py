@@ -7,12 +7,6 @@ data = pd.read_csv('processed_dataset.csv')
 from keras.models import load_model
 model = load_model('anime_recommendation_model.h5')
 
-with open('preprocessing_pipeline.joblib', 'rb') as f:
-    preprocessing_pipeline = pickle.load(f)
-
-def preprocess_data(input_data):
-    return preprocessing_pipeline.transform(input_data)
-
 from preprocessor import Preprocessor
 preprocessor = Preprocessor()
 
